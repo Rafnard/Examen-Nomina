@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ExamenNomina.Models.Nomina>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Nomina</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create", "", new { @class = "btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Empleado.NomEmpleado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SueldoQuincenal)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Empleado.NomEmpleado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SueldoQuincenal)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdNomina },new { @class = "btn btn-primary" })
+            @Html.ActionLink("Detailles", "Details", new { id=item.IdNomina }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdNomina }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
